@@ -1057,7 +1057,7 @@ function MdAutocompleteCtrl ($scope, $element, $mdUtil, $mdConstant, $mdTheming,
     exact = true
     var textLength = (ctrl.scope.searchText || '').length;
 
-    return ctrl.hasNotFound && (!hasMatches() && !exact || hasMatches() && exact) && (!ctrl.loading || isPromiseFetching()) && textLength >= getMinLength() && (hasFocus || noBlur) && !hasSelection();
+    return ctrl.hasNotFound && (!hasMatches() || hasMatches() && exact) && (!ctrl.loading || isPromiseFetching()) && textLength >= getMinLength() && (hasFocus || noBlur) && !hasSelection();
   }
 
   /**
