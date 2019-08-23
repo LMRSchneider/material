@@ -329,7 +329,7 @@ function MdAutocomplete ($$mdSvgRegistry) {
       autofocus:          '=?mdAutofocus',
       floatingLabel:      '@?mdFloatingLabel',
       autoselect:         '=?mdAutoselect',
-      showNotComplete:    '=?md-show-not-complete',
+      showNotComplete:    '=?mdShowNotComplete',
       menuClass:          '@?mdMenuClass',
       menuContainerClass: '@?mdMenuContainerClass',
       inputClass:         '@?mdInputClass',
