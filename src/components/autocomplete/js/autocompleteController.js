@@ -1053,8 +1053,8 @@ function MdAutocompleteCtrl ($scope, $element, $mdUtil, $mdConstant, $mdTheming,
     }
   }
 
-  function notFoundVisible (exact) {
-    exact = true
+  function notFoundVisible () {
+    var exact = $scope.showNotComplete ? true : false
     var textLength = (ctrl.scope.searchText || '').length;
 
     return ctrl.hasNotFound && (!hasMatches() || hasMatches() && exact) && (!ctrl.loading || isPromiseFetching()) && textLength >= getMinLength() && (hasFocus || noBlur) && !hasSelection();

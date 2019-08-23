@@ -9578,8 +9578,8 @@ function MdAutocompleteCtrl ($scope, $element, $mdUtil, $mdConstant, $mdTheming,
     }
   }
 
-  function notFoundVisible (exact) {
-    exact = true
+  function notFoundVisible () {
+    var exact = $scope.showNotComplete ? true : false
     var textLength = (ctrl.scope.searchText || '').length;
 
     return ctrl.hasNotFound && (!hasMatches() || hasMatches() && exact) && (!ctrl.loading || isPromiseFetching()) && textLength >= getMinLength() && (hasFocus || noBlur) && !hasSelection();
@@ -9756,6 +9756,8 @@ MdAutocomplete.$inject = ["$$mdSvgRegistry"];angular
  * @param {boolean=} ng-disabled Determines whether or not to disable the input field.
  * @param {boolean=} md-require-match When set to true, the autocomplete will add a validator,
  *     which will evaluate to false, when no item is currently selected.
+ * @param {boolean=} md-show-not-complete When set to true, the md-not-found tag will be shown
+ *     alongside partial matches if there are any
  * @param {number=} md-min-length Specifies the minimum length of text before autocomplete will
  *     make suggestions.
  * @param {number=} md-delay Specifies the amount of time (in milliseconds) to wait before looking
@@ -9990,6 +9992,7 @@ function MdAutocomplete ($$mdSvgRegistry) {
       autofocus:          '=?mdAutofocus',
       floatingLabel:      '@?mdFloatingLabel',
       autoselect:         '=?mdAutoselect',
+      showNotComplete:    '=?md-show-not-complete',
       menuClass:          '@?mdMenuClass',
       menuContainerClass: '@?mdMenuContainerClass',
       inputClass:         '@?mdInputClass',
