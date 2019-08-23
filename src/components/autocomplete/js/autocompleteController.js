@@ -1055,6 +1055,7 @@ function MdAutocompleteCtrl ($scope, $element, $mdUtil, $mdConstant, $mdTheming,
 
   function notFoundVisible (exact) {
     exact = true
+    console.log(exact)
     var textLength = (ctrl.scope.searchText || '').length;
 
     return ctrl.hasNotFound && (!hasMatches() && !exact || hasMatches() && exact) && (!ctrl.loading || isPromiseFetching()) && textLength >= getMinLength() && (hasFocus || noBlur) && !hasSelection();
