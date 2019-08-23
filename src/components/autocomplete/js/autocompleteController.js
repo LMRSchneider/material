@@ -792,7 +792,7 @@ function MdAutocompleteCtrl ($scope, $element, $mdUtil, $mdConstant, $mdTheming,
       // or the input is not focused.
       return false;
     }
-    return (isMinLengthMet() && hasMatches()) || notFoundVisible();
+    return (isMinLengthMet() && hasMatches()) || notFoundVisible(true);
   }
 
   /**
@@ -1053,10 +1053,11 @@ function MdAutocompleteCtrl ($scope, $element, $mdUtil, $mdConstant, $mdTheming,
     }
   }
 
-  function notFoundVisible () {
+  function notFoundVisible (exact) {
+    exact = true
     var textLength = (ctrl.scope.searchText || '').length;
 
-    return ctrl.hasNotFound && !hasMatches() && (!ctrl.loading || isPromiseFetching()) && textLength >= getMinLength() && (hasFocus || noBlur) && !hasSelection();
+    return ctrl.hasNotFound && (!hasMatches() && !exact || hasMatches() && exact) && (!ctrl.loading || isPromiseFetching()) && textLength >= getMinLength() && (hasFocus || noBlur) && !hasSelection();
   }
 
   /**
